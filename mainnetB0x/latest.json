@@ -1,6 +1,62 @@
 {
   "mined_blocks": [
     [
+      40932173,
+      "933a9e8c028822973f107e463d6b46a25957663a8a5fac56ee949ec93a1d1698",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      20.65,
+      10807
+    ],
+    [
+      40931925,
+      "bfac74eba5fe5461d487033defab3cfa54bdc2dbeb4a2b9e75de3e35be5c178c",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      20.9,
+      10806
+    ],
+    [
+      40931674,
+      "6f870edde734673267f8a51a76f757045e1df9708de75de11c63e8bf32b135b0",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      21.15,
+      10805
+    ],
+    [
+      40931420,
+      "a89ffd552082d5973dd573e4e25da7207cbe43aae1e881c365eea99abfe10fff",
+      "0x5580ce760213a896939a882801c364d485b54a85",
+      21.9,
+      10804
+    ],
+    [
+      40931157,
+      "db0316d9c230aee26ead60eda495f38e84fce265cd39c98f24219e792f7dd93e",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      19.825,
+      10803
+    ],
+    [
+      40930919,
+      "6065035b6e30b85ec9335b2db2bd5ed504f1158eefb908472c4ee0739d06d384",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      20.075,
+      10802
+    ],
+    [
+      40930678,
+      "82a2d283c5543f7470c16589fc425388dfa214bf4c177fae62a4c7ce7f5045dd",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      20.25,
+      10801
+    ],
+    [
+      40930435,
+      "056b51a1d2e235daf7a792c42e5d67b70141a1affdd7b653dbabae50e14b88b4",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      20.5,
+      10800
+    ],
+    [
       40930189,
       "6760017f968d97ec22fbc8d0f560165a38b83f536450e40d889d56029135c57a",
       "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
@@ -120317,9 +120373,9 @@
       9
     ]
   ],
-  "total_blocks": 17188,
-  "last_updated": 1768649986,
-  "latest_block_number": 40930318,
+  "total_blocks": 17196,
+  "last_updated": 1768653931,
+  "latest_block_number": 40932290,
   "contract_address": "0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4",
   "mint_topic": "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d",
   "previous_challenge": "8f4946db41b0a08d9f520ce4b32aa8d88cc2e79ed78b2529bc63bc99f48a77bd"
