@@ -1,0 +1,24 @@
+{
+  "token": {
+    "name": "Rights To 0xBitcoin Token",
+    "symbol": "R0xBTC",
+    "decimals": 18,
+    "address": "0xE3A582b3588c9BB73027e5C0531912d880e76E1E"
+  },
+  "totalHolders": 2,
+  "lastUpdated": "2025-11-02T18:45:21.408201",
+  "scanCompletedBlock": 23715303,
+  "totalTransfers": 6,
+  "holders": [
+    {
+      "address": "0xE4F85f4FAe5fd0Be23a260b8e226db3d6bc37015",
+      "balance": "2100000000000000000000",
+      "balanceFormatted": "2100.0"
+    },
+    {
+      "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+      "balance": "50000000000000000000",
+      "balanceFormatted": "50.0"
+    }
+  ]
+}
