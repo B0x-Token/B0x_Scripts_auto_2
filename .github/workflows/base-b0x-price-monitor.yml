@@ -1,0 +1,141 @@
+name: Base B0x Price Monitor
+
+on:
+  schedule:
+    # Runs every 30 minutes (offset by 15 minutes from Uniswap workflow)
+    - cron: '15,45 * * * *'
+  workflow_dispatch: # Allows manual triggering
+  push:
+    branches: [ main ]  # Also runs on pushes to main for testing
+
+jobs:
+  monitor-price-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-price-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-price-
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install web3
+    
+    - name: Create mainnetB0x directory
+      run: |
+        mkdir -p mainnetB0x
+    
+    - name: Check for existing price data file
+      run: |
+        if [ -f "mainnetB0x/price_data_bwork_mainnetv2.json" ]; then
+          echo "Found existing price data file, copying to working directory"
+          cp mainnetB0x/price_data_bwork_mainnetv2.json ./
+        else
+          echo "No existing price data file found in mainnetB0x directory"
+        fi
+    
+    - name: Run Price Data Monitor
+      run: |
+        echo "Starting Price Data Monitor..."
+        timeout 1200 python price_monitor_github.py || true
+      timeout-minutes: 25
+    
+    - name: Move price data file to mainnetB0x directory
+      id: move_price_file
+      run: |
+        if [ -f "price_data_bwork_mainnetv2.json" ]; then
+          cp price_data_bwork_mainnetv2.json mainnetB0x/
+          echo "file_exists=true" >> $GITHUB_OUTPUT
+          echo "Price data file moved to mainnetB0x/ directory"
+          echo "File size: $(ls -lh mainnetB0x/price_data_bwork_mainnetv2.json)"
+          echo "Data preview:"
+          tail -10 mainnetB0x/price_data_bwork_mainnetv2.json
+        else
+          echo "file_exists=false" >> $GITHUB_OUTPUT
+          echo "Price data file was not created"
+        fi
+    
+    - name: Configure Git
+      if: steps.move_price_file.outputs.file_exists == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+    
+    - name: Pull latest changes before committing
+      if: steps.move_price_file.outputs.file_exists == 'true'
+      run: |
+        git pull origin main || true
+    
+    - name: Commit and push price data files with retry logic
+      if: steps.move_price_file.outputs.file_exists == 'true'
+      run: |
+        # Only add price-specific files
+        git add mainnetB0x/price_data_bwork_mainnetv2.json
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        
+        # Retry logic for concurrent workflows
+        for attempt in {1..5}; do
+          echo "Commit attempt $attempt"
+          
+          # Get current timestamp and price info for commit message
+          TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S UTC')
+          DATA_POINTS=$(python -c "import json; data=json.load(open('mainnetB0x/price_data_bwork_mainnetv2.json')); print(len(data.get('timestamps', [])))" 2>/dev/null || echo "0")
+          LAST_PRICE=$(python -c "import json; data=json.load(open('mainnetB0x/price_data_bwork_mainnetv2.json')); prices=data.get('prices', []); print(f'{prices[-1]:.6f}' if prices else 'N/A')" 2>/dev/null || echo "N/A")
+          
+          if git commit -m "Update Base B0x price data: ${DATA_POINTS} data points, last price: \$${LAST_PRICE} - ${TIMESTAMP}"; then
+            # Try to push
+            if git push origin main; then
+              echo "Successfully pushed on attempt $attempt"
+              echo "Data points: ${DATA_POINTS}"
+              echo "Last price: \$${LAST_PRICE}"
+              echo "Access your price data at:"
+              echo "   JSON: https://raw.githubusercontent.com/${{ github.repository }}/main/mainnetB0x/price_data_bwork_mainnetv2.json"
+              break
+            else
+              echo "Push failed on attempt $attempt - another workflow may have pushed first"
+              # Pull the latest changes and try again
+              git reset --soft HEAD~1  # Undo the commit but keep changes staged
+              git pull origin main || git pull origin main --no-rebase
+              
+              # Add a small random delay to reduce collision probability
+              sleep $((RANDOM % 10 + 5))
+            fi
+          else
+            echo "Commit failed on attempt $attempt"
+            break
+          fi
+          
+          if [ $attempt -eq 5 ]; then
+            echo "Failed to push after 5 attempts - this may need manual intervention"
+            exit 1
+          fi
+        done
+    
+    - name: Upload price data artifacts (backup)
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: base-b0x-price-data-${{ github.run_number }}
+        path: mainnetB0x/price_data_bwork_mainnetv2.json
+        retention-days: 7

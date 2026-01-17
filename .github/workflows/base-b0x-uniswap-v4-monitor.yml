@@ -1,0 +1,144 @@
+name: Uniswap V4 Monitor
+
+on:
+  schedule:
+    # Runs every 30 minutes (offset by 15 minutes from the other workflow)
+    - cron: '15,45 * * * *'
+  workflow_dispatch: # Allows manual triggering
+  push:
+    branches: [ main ]  # Also runs on pushes to main for testing
+
+jobs:
+  monitor-positions:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-uniswap-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-uniswap-
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install web3 requests eth-abi
+    
+    - name: Create mainnetB0x directory
+      run: |
+        mkdir -p mainnetB0x
+    
+    - name: Check for existing Uniswap data file
+      run: |
+        if [ -f "mainnetB0x/mainnet_uniswap_v4_data.json" ]; then
+          echo "Found existing Uniswap data file, copying to working directory"
+          cp mainnetB0x/mainnet_uniswap_v4_data.json ./
+        else
+          echo "No existing Uniswap data file found in mainnetB0x directory"
+        fi
+    
+    - name: Run Uniswap V4 Monitor
+      env:
+        RPC_URL: ${{ secrets.RPC_URL }}
+      run: |
+        echo "Starting Uniswap V4 Monitor..."
+        python uniswap_v4_monitor_github.py
+      timeout-minutes: 25
+    
+    - name: Move Uniswap data file to mainnetB0x directory
+      id: move_uniswap_file
+      run: |
+        if [ -f "mainnet_uniswap_v4_data.json" ]; then
+          cp mainnet_uniswap_v4_data.json mainnetB0x/
+          echo "file_exists=true" >> $GITHUB_OUTPUT
+          echo "Uniswap data file moved to mainnetB0x/ directory"
+          echo "File size: $(ls -lh mainnetB0x/mainnet_uniswap_v4_data.json)"
+          echo "Data preview:"
+          tail -10 mainnetB0x/mainnet_uniswap_v4_data.json
+        else
+          echo "file_exists=false" >> $GITHUB_OUTPUT
+          echo "Uniswap data file was not created"
+        fi
+    
+    - name: Configure Git
+      if: steps.move_uniswap_file.outputs.file_exists == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+    
+    - name: Pull latest changes before committing
+      if: steps.move_uniswap_file.outputs.file_exists == 'true'
+      run: |
+        git pull origin main || true
+    
+    - name: Commit and push Uniswap data files with retry logic
+      if: steps.move_uniswap_file.outputs.file_exists == 'true'
+      run: |
+        # Only add Uniswap-specific files
+        git add mainnetB0x/mainnet_uniswap_v4_data.json
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        
+        # Retry logic for concurrent workflows
+        for attempt in {1..5}; do
+          echo "Commit attempt $attempt"
+          
+          # Get current timestamp and position info for commit message
+          TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S UTC')
+          VALID_POSITIONS=$(python -c "import json; data=json.load(open('mainnetB0x/mainnet_uniswap_v4_data.json')); print(data['metadata'].get('total_valid_positions', 0))" 2>/dev/null || echo "0")
+          CURRENT_BLOCK=$(python -c "import json; data=json.load(open('mainnetB0x/mainnet_uniswap_v4_data.json')); print(data['metadata'].get('current_block', 'unknown'))" 2>/dev/null || echo "unknown")
+          
+          if git commit -m "Update Uniswap V4 data: ${VALID_POSITIONS} valid positions (block: ${CURRENT_BLOCK}) - ${TIMESTAMP}"; then
+            # Try to push
+            if git push origin main; then
+              echo "Successfully pushed on attempt $attempt"
+              echo "Valid positions: ${VALID_POSITIONS}"
+              echo "Current block: ${CURRENT_BLOCK}"
+              echo "Access your Uniswap data at:"
+              echo "   JSON: https://raw.githubusercontent.com/${{ github.repository }}/main/mainnetB0x/mainnet_uniswap_v4_data.json"
+              echo "   Web:  https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/mainnetB0x/"
+              break
+            else
+              echo "Push failed on attempt $attempt - another workflow may have pushed first"
+              # Pull the latest changes and try again
+              git reset --soft HEAD~1  # Undo the commit but keep changes staged
+              git pull origin main || git pull origin main --no-rebase
+              
+              # Add a small random delay to reduce collision probability
+              sleep $((RANDOM % 10 + 5))
+            fi
+          else
+            echo "Commit failed on attempt $attempt"
+            break
+          fi
+          
+          if [ $attempt -eq 5 ]; then
+            echo "Failed to push after 5 attempts - this may need manual intervention"
+            exit 1
+          fi
+        done
+    
+    - name: Upload Uniswap artifacts (backup)
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: uniswap-v4-data-${{ github.run_number }}
+        path: mainnetB0x/mainnet_uniswap_v4_data.json
+        retention-days: 7

@@ -1,0 +1,449 @@
+name: Ethereum Block Fetcher
+
+on:
+  schedule:
+    # Runs every 30 minutes
+    - cron: '0,30 * * * *'
+  workflow_dispatch: # Allows manual triggering
+  push:
+    branches: [ main ]  # Also runs on pushes to main for testing
+
+jobs:
+  fetch-blocks:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install web3
+    
+    - name: Create mainnetB0x directory
+      run: |
+        mkdir -p mainnetB0x
+    
+    - name: Check for existing data file
+      run: |
+        if [ -f "mainnetB0x/mined_blocks_mainnet.json" ]; then
+          echo "Found existing data file, copying to working directory"
+          cp mainnetB0x/mined_blocks_mainnet.json ./
+        else
+          echo "No existing data file found in mainnetB0x directory"
+        fi
+    
+    - name: Run Ethereum Block Fetcher
+      env:
+        RPC_URL: ${{ secrets.RPC_URL }}
+      run: |
+        echo "Starting Ethereum Block Fetcher..."
+        python ethereum_block_fetcher_github.py
+      timeout-minutes: 25
+    
+    - name: Move data file to mainnetB0x directory
+      id: move_file
+      run: |
+        if [ -f "mined_blocks_mainnet.json" ]; then
+          cp mined_blocks_mainnet.json mainnetB0x/
+          echo "file_exists=true" >> $GITHUB_OUTPUT
+          echo "File moved to mainnetB0x/ directory"
+          echo "File size: $(ls -lh mainnetB0x/mined_blocks_mainnet.json)"
+          echo "Data preview:"
+          tail -10 mainnetB0x/mined_blocks_mainnet.json
+        else
+          echo "file_exists=false" >> $GITHUB_OUTPUT
+          echo "Data file was not created"
+        fi
+    
+    - name: Create additional files in mainnetB0x
+      if: steps.move_file.outputs.file_exists == 'true'
+      run: |
+        # Create a latest.json symlink/copy
+        cp mainnetB0x/mined_blocks_mainnet.json mainnetB0x/latest.json
+        
+        # Create README for the mainnetB0x directory
+        cat > mainnetB0x/README.md << 'EOF'
+        # B0x Mining Data - Base Mainnet
+        
+        This directory contains automatically updated mining data for the B0x token on Base mainnet.
+        
+        ## Files
+        
+        - mined_blocks_mainnet.json - Main data file with all mining transactions
+        - latest.json - Copy of the main file for easy access
+        - index.html - Web interface for viewing the data
+        
+        ## Direct Access Links
+        
+        - JSON Data: https://raw.githubusercontent.com/${{ github.repository }}/main/mainnetB0x/mined_blocks_mainnet.json
+        - Latest Copy: https://raw.githubusercontent.com/${{ github.repository }}/main/mainnetB0x/latest.json
+        
+        ## Data Structure
+        
+        The JSON file contains an object with the following structure:
+        - mined_blocks: Array of arrays containing [block_number, tx_hash, miner_address, amount, epoch_count]
+        - total_blocks: Total number of blocks processed
+        - last_updated: Unix timestamp of last update
+        - latest_block_number: Latest blockchain block processed
+        - contract_address: The smart contract address
+        - mint_topic: The event topic hash
+        - previous_challenge: Last challenge hash
+        
+        Updated automatically every 30 minutes via GitHub Actions.
+        EOF
+        
+        # Create a simple HTML interface
+        cat > mainnetB0x/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>B0x Data Dashboard - Base Mainnet</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body { 
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                    margin: 0; 
+                    padding: 20px; 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                }
+                .container { 
+                    max-width: 1200px; 
+                    margin: 0 auto; 
+                    background: white; 
+                    border-radius: 10px; 
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                    overflow: hidden;
+                }
+                .header {
+                    background: linear-gradient(45deg, #1e3c72, #2a5298);
+                    color: white;
+                    padding: 30px;
+                    text-align: center;
+                }
+                .section {
+                    padding: 20px;
+                    border-bottom: 1px solid #e0e0e0;
+                }
+                .section:last-child {
+                    border-bottom: none;
+                }
+                .section-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                    color: #1e3c72;
+                }
+                .stats { 
+                    display: grid; 
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                    gap: 15px;
+                }
+                .stat-card {
+                    background: #f8f9fa;
+                    padding: 15px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                    text-align: center;
+                }
+                .stat-value {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #2a5298;
+                }
+                .stat-label {
+                    color: #666;
+                    margin-top: 5px;
+                    font-size: 13px;
+                }
+                .link-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 15px;
+                }
+                .link-card {
+                    background: #e3f2fd;
+                    padding: 15px;
+                    border-radius: 6px;
+                    border-left: 4px solid #2a5298;
+                }
+                .link-card a {
+                    color: #1565c0;
+                    text-decoration: none;
+                    font-weight: 500;
+                }
+                .link-card a:hover {
+                    text-decoration: underline;
+                }
+                .data-item {
+                    background: #f5f5f5;
+                    padding: 10px;
+                    margin: 5px 0;
+                    border-radius: 4px;
+                    font-family: monospace;
+                    font-size: 12px;
+                }
+                .loading {
+                    text-align: center;
+                    padding: 20px;
+                    color: #666;
+                }
+                .error {
+                    color: #d32f2f;
+                    padding: 10px;
+                    background: #ffebee;
+                    border-radius: 4px;
+                    margin: 10px 0;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>B0x Data Dashboard</h1>
+                    <p>Base Mainnet • Real-time Statistics</p>
+                </div>
+                
+                <!-- Mining Data Section -->
+                <div class="section">
+                    <div class="section-title">Mining Statistics</div>
+                    <div class="stats" id="mining-stats">
+                        <div class="loading">Loading mining data...</div>
+                    </div>
+                </div>
+                
+                <!-- Uniswap V4 Section -->
+                <div class="section">
+                    <div class="section-title">Uniswap V4 Positions</div>
+                    <div class="stats" id="uniswap-stats">
+                        <div class="loading">Loading Uniswap data...</div>
+                    </div>
+                </div>
+                
+                <!-- Data Access Links -->
+                <div class="section">
+                    <div class="section-title">Direct Data Access</div>
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <strong>Mining Data</strong><br>
+                            <a href="mined_blocks_mainnet.json" target="_blank">mined_blocks_mainnet.json</a>
+                        </div>
+                        <div class="link-card">
+                            <strong>Latest Mining Copy</strong><br>
+                            <a href="latest.json" target="_blank">latest.json</a>
+                        </div>
+                        <div class="link-card">
+                            <strong>Uniswap V4 Data</strong><br>
+                            <a href="testnet_uniswap_v4_data.json" target="_blank">testnet_uniswap_v4_data.json</a>
+                        </div>
+                        <div class="link-card">
+                            <strong>Contract</strong><br>
+                            <a href="#" id="contract-link" target="_blank">View on BaseScan</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Mining Activity -->
+                <div class="section">
+                    <div class="section-title">Recent Mining Activity</div>
+                    <div id="recent-blocks-content" class="loading">Loading recent blocks...</div>
+                </div>
+                
+                <!-- Valid Positions -->
+                <div class="section">
+                    <div class="section-title">Valid Uniswap V4 Positions</div>
+                    <div id="positions-content" class="loading">Loading positions...</div>
+                </div>
+            </div>
+            
+            <script>
+                async function loadMiningData() {
+                    try {
+                        const response = await fetch('latest.json');
+                        const data = await response.json();
+                        
+                        // Update mining stats
+                        const miningStats = document.getElementById('mining-stats');
+                        miningStats.innerHTML = `
+                            <div class="stat-card">
+                                <div class="stat-value">${data.total_blocks.toLocaleString()}</div>
+                                <div class="stat-label">Total Blocks Mined</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">${data.latest_block_number.toLocaleString()}</div>
+                                <div class="stat-label">Latest Block Processed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">${new Date(data.last_updated * 1000).toLocaleDateString()}</div>
+                                <div class="stat-label">Last Updated</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">${new Date(data.last_updated * 1000).toLocaleTimeString()}</div>
+                                <div class="stat-label">Update Time</div>
+                            </div>
+                        `;
+                        
+                        // Update contract link
+                        document.getElementById('contract-link').href = `https://basescan.org/address/${data.contract_address}`;
+                        
+                        // Show recent blocks
+                        const recentBlocks = data.mined_blocks.slice(0, 10);
+                        const recentBlocksContent = document.getElementById('recent-blocks-content');
+                        recentBlocksContent.innerHTML = recentBlocks.map(block => `
+                            <div class="data-item">
+                                Block: ${block[0]} | Miner: ${block[2]} | Amount: ${block[3]} | Epoch: ${block[4]}
+                            </div>
+                        `).join('');
+                        
+                    } catch (error) {
+                        console.error('Error loading mining data:', error);
+                        document.getElementById('mining-stats').innerHTML = '<div class="error">Error loading mining data</div>';
+                        document.getElementById('recent-blocks-content').innerHTML = '<div class="error">Error loading recent blocks</div>';
+                    }
+                }
+                
+                async function loadUniswapData() {
+                    try {
+                        const response = await fetch('testnet_uniswap_v4_data.json');
+                        const data = await response.json();
+                        
+                        // Update Uniswap stats
+                        const uniswapStats = document.getElementById('uniswap-stats');
+                        uniswapStats.innerHTML = `
+                            <div class="stat-card">
+                                <div class="stat-value">${data.metadata.total_valid_positions}</div>
+                                <div class="stat-label">Valid Staking NFT Positions</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">${data.metadata.current_block.toLocaleString()}</div>
+                                <div class="stat-label">Current Block</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">${data.metadata.total_nft_owners}</div>
+                                <div class="stat-label">Valid Staking NFT Owners</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">${new Date(data.metadata.last_updated).toLocaleString()}</div>
+                                <div class="stat-label">Last Updated</div>
+                            </div>
+                        `;
+                        
+                        // Show valid positions
+                        const positionsContent = document.getElementById('positions-content');
+                        if (data.valid_positions && data.valid_positions.length > 0) {
+                            positionsContent.innerHTML = data.valid_positions.map(pos => `
+                                <div class="data-item">
+                                    Token ID: ${pos.token_id} | Owner: ${pos.owner.substring(0, 10)}... | Block: ${pos.block_number}
+                                </div>
+                            `).join('');
+                        } else {
+                            positionsContent.innerHTML = '<div class="data-item">No valid positions found</div>';
+                        }
+                        
+                    } catch (error) {
+                        console.error('Error loading Uniswap data:', error);
+                        document.getElementById('uniswap-stats').innerHTML = '<div class="error">Uniswap data not yet available</div>';
+                        document.getElementById('positions-content').innerHTML = '<div class="error">Positions data not available</div>';
+                    }
+                }
+                
+                // Load both data sources
+                loadMiningData();
+                loadUniswapData();
+                
+                // Auto-refresh every 5 minutes
+                setInterval(() => {
+                    loadMiningData();
+                    loadUniswapData();
+                }, 5 * 60 * 1000);
+            </script>
+        </body>
+        </html>
+        EOF
+    
+    - name: Configure Git
+      if: steps.move_file.outputs.file_exists == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+    
+    - name: Pull latest changes before committing
+      if: steps.move_file.outputs.file_exists == 'true'
+      run: |
+        git pull origin main || true
+    
+    - name: Commit and push data files with retry logic
+      if: steps.move_file.outputs.file_exists == 'true'
+      run: |
+        # Only add Ethereum-specific files
+        git add mainnetB0x/mined_blocks_mainnet.json mainnetB0x/latest.json mainnetB0x/README.md mainnetB0x/index.html
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        
+        # Retry logic for concurrent workflows
+        for attempt in {1..5}; do
+          echo "Commit attempt $attempt"
+          
+          # Get current timestamp and block info for commit message
+          TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S UTC')
+          TOTAL_BLOCKS=$(python -c "import json; data=json.load(open('mainnetB0x/mined_blocks_mainnet.json')); print(data.get('total_blocks', 0))")
+          LATEST_BLOCK=$(python -c "import json; data=json.load(open('mainnetB0x/mined_blocks_mainnet.json')); print(data.get('latest_block_number', 'unknown'))")
+          
+          if git commit -m "Update B0x mining data: ${TOTAL_BLOCKS} blocks processed (latest: ${LATEST_BLOCK}) - ${TIMESTAMP}"; then
+            # Try to push
+            if git push origin main; then
+              echo "Successfully pushed on attempt $attempt"
+              echo "Total blocks processed: ${TOTAL_BLOCKS}"
+              echo "Access your data at:"
+              echo "   JSON: https://raw.githubusercontent.com/${{ github.repository }}/main/mainnetB0x/mined_blocks_mainnet.json"
+              echo "   Web:  https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/mainnetB0x/"
+              break
+            else
+              echo "Push failed on attempt $attempt - another workflow may have pushed first"
+              # Pull the latest changes and try again
+              git reset --soft HEAD~1  # Undo the commit but keep changes staged
+              git pull origin main || git pull origin main --no-rebase
+              
+              # Add a small random delay to reduce collision probability
+              sleep $((RANDOM % 10 + 5))
+            fi
+          else
+            echo "Commit failed on attempt $attempt"
+            break
+          fi
+          
+          if [ $attempt -eq 5 ]; then
+            echo "Failed to push after 5 attempts - this may need manual intervention"
+            exit 1
+          fi
+        done
+    
+    - name: Upload artifacts (backup)
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: mainnetB0x-data-${{ github.run_number }}
+        path: mainnetB0x/
+        retention-days: 7
