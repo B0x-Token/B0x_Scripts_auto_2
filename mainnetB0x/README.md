@@ -4,14 +4,14 @@ This directory contains automatically updated mining data for the B0x token on B
 
 ## Files
 
-- uu_mined_blocks_testnet.json - Main data file with all mining transactions
+- mined_blocks_mainnet.json - Main data file with all mining transactions
 - latest.json - Copy of the main file for easy access
 - index.html - Web interface for viewing the data
 
 ## Direct Access Links
 
-- JSON Data: https://raw.githubusercontent.com/B0x-Token/B0x_scripts_auto/main/mainnetB0x/uu_mined_blocks_testnet.json
-- Latest Copy: https://raw.githubusercontent.com/B0x-Token/B0x_scripts_auto/main/mainnetB0x/latest.json
+- JSON Data: https://raw.githubusercontent.com/B0x-Token/B0x_Scripts_auto_2/main/mainnetB0x/mined_blocks_mainnet.json
+- Latest Copy: https://raw.githubusercontent.com/B0x-Token/B0x_Scripts_auto_2/main/mainnetB0x/latest.json
 
 ## Data Structure
 
