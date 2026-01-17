@@ -1,0 +1,321 @@
+{
+  "metadata": {
+    "last_updated": "2026-01-17T07:01:07.618459",
+    "current_block": 40921959,
+    "start_block": 35956776,
+    "target_pool_key": {
+      "currency0": "0xa9520FC8c54691af586544aD13Db954AfC345cd4",
+      "currency1": "0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B",
+      "fee": 8388608,
+      "tickSpacing": 60,
+      "hooks": "0x983dD6eF6A9360331ba80Ed6322ea47fEb9AD000"
+    },
+    "total_valid_positions": 20,
+    "total_invalid_positions": 65,
+    "total_nft_owners": 20
+  },
+  "valid_positions": [
+    {
+      "token_id": 330403,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xd9e5e47d9a100fc6e7d1b1c25e5fd7ab4f2254e4",
+      "block_number": 36330164,
+      "tx_hash": "0xfd0195bc0424dc5521d8f50ac0fffa722e64cb6074a299705d58b01b5d0bed4f",
+      "timestamp": "2025-10-02T19:56:15.564458"
+    },
+    {
+      "token_id": 330586,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xd9e5e47d9a100fc6e7d1b1c25e5fd7ab4f2254e4",
+      "block_number": 36331162,
+      "tx_hash": "0x11c8540e0e6de875da2864d71e5bde21b94d5b7573c2f66c046340bf3cc299b1",
+      "timestamp": "2025-10-02T19:56:23.793806"
+    },
+    {
+      "token_id": 330741,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xd9e5e47d9a100fc6e7d1b1c25e5fd7ab4f2254e4",
+      "block_number": 36331661,
+      "tx_hash": "0x0721a2fd1071f38f8c17a4d5639577aeb6e9538518fe6beae1a975920d7a7ef9",
+      "timestamp": "2025-10-02T19:56:31.055481"
+    },
+    {
+      "token_id": 330768,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 36332197,
+      "tx_hash": "0x548130636aff20a267224579051c879a630ffe114c78350fb84b75e80e0b7439",
+      "timestamp": "2025-10-02T20:09:06.552559"
+    },
+    {
+      "token_id": 345659,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe4f85f4fae5fd0be23a260b8e226db3d6bc37015",
+      "block_number": 36446708,
+      "tx_hash": "0xd4e79366ba2fca874e424ab1d5de0c11b2e5a75241ad5871f47d77118f185927",
+      "timestamp": "2025-10-05T16:46:08.699651"
+    },
+    {
+      "token_id": 346147,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 36448505,
+      "tx_hash": "0xa35798fcba1bdcd58a2aeec11db301f8b325213d773cb5ca86cfdcf1ed25c1cb",
+      "timestamp": "2025-10-05T17:46:07.757917"
+    },
+    {
+      "token_id": 348169,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 36457454,
+      "tx_hash": "0x299dd2fde7d133ed8951d8301fdf0040d165887c3afdf7fc58efd7515d25d639",
+      "timestamp": "2025-10-05T22:46:00.654990"
+    },
+    {
+      "token_id": 348297,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xefad8b7b95d8e5f175d7d451f9837dc246e36499",
+      "block_number": 36458003,
+      "tx_hash": "0x6be95656cc1f178b8740cd72c0fe5cdcf9b532de7b06a036fcb130f08f4d4900",
+      "timestamp": "2025-10-05T23:22:39.811406"
+    },
+    {
+      "token_id": 348331,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 36458502,
+      "tx_hash": "0x4e659981cd5656c8dbe82aa0a48a934b55f483d0c844ef281df090a43306708e",
+      "timestamp": "2025-10-05T23:22:43.497237"
+    },
+    {
+      "token_id": 376765,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0x0ae54e4c8e51e632d65bcc37d020dcd8cfe2cd37",
+      "block_number": 36776087,
+      "tx_hash": "0xbdaf43f16fcc2f7bd5ce186d5c7bdc708b4633503e46c4a146a1d43883fbff93",
+      "timestamp": "2025-10-13T07:45:56.454792"
+    },
+    {
+      "token_id": 490224,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0x659f58dbec4425a3250a227d83bb57cb2bfc364f",
+      "block_number": 37638013,
+      "tx_hash": "0xe9d718d3b9dbaeefed968ab8a51299aea01ef232381097a5e17fda9a8a8c81d7",
+      "timestamp": "2025-11-02T06:39:48.213445"
+    },
+    {
+      "token_id": 490468,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0x659f58dbec4425a3250a227d83bb57cb2bfc364f",
+      "block_number": 37641480,
+      "tx_hash": "0xfe4f9f466ef9d6966409226e0c21bb564bc6af23de2a23696e9468add287bfda",
+      "timestamp": "2025-11-02T08:32:00.721695"
+    },
+    {
+      "token_id": 492640,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0x27322c5b95a977b58302fa5f53a5ba1fdb9cfeae",
+      "block_number": 37650447,
+      "tx_hash": "0x247593db4d08c30fbb97349ced207cb8d88a4c05496c38ccaff51657e7b9fdb7",
+      "timestamp": "2025-11-02T13:30:53.965902"
+    },
+    {
+      "token_id": 492865,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xf40ba6a2fffe61718d4f6225dd62a45f6ba57c72",
+      "block_number": 37652655,
+      "tx_hash": "0xacd8c641f07895f46bc4fabf3651e89094c9a840c3b0d9a3051fb6c0e2bd4d20",
+      "timestamp": "2025-11-02T14:45:56.235199"
+    },
+    {
+      "token_id": 493079,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0x613f1e10fcb8c06ba16e9d154d50f5e7daf4e481",
+      "block_number": 37654407,
+      "tx_hash": "0x5ded2cd11d96c0b682ce738b594d5d1ea96ad287480dc03eb842269602a96a35",
+      "timestamp": "2025-11-02T15:46:26.235053"
+    },
+    {
+      "token_id": 494521,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 37659975,
+      "tx_hash": "0xd89ed5210acde14c1576cdef4a4a86dcb059ab36cdf499b7a7e3ed16bdd88e1a",
+      "timestamp": "2025-11-02T18:48:22.930643"
+    },
+    {
+      "token_id": 494572,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xead8251ec15ec8ff623c0af31431aa2c1c9d1fbb",
+      "block_number": 37660474,
+      "tx_hash": "0xc4bfbdd5cbc0071f473ed92c1a9785cd31691e2a1389d8e6a4a8da65c2c5c0d9",
+      "timestamp": "2025-11-02T19:20:59.048909"
+    },
+    {
+      "token_id": 494630,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 37660474,
+      "tx_hash": "0x23fb19dc9f6ff9736e557e13a083e36035b7a0d29c0cedef3e21a0f19950d0fe",
+      "timestamp": "2025-11-02T19:20:59.049543"
+    },
+    {
+      "token_id": 494648,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 37660474,
+      "tx_hash": "0x91300cec42f90be4d3c0e7f73ef124f383ddff692f352dfc59fc1e88348b564f",
+      "timestamp": "2025-11-02T19:20:59.049742"
+    },
+    {
+      "token_id": 495028,
+      "pool_key": {
+        "currency0": "0xa9520fc8c54691af586544ad13db954afc345cd4",
+        "currency1": "0xc4d4fd4f4459730d176844c170f2bb323c87eb3b",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x983dd6ef6a9360331ba80ed6322ea47feb9ad000"
+      },
+      "owner": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+      "block_number": 37661452,
+      "tx_hash": "0x8d576f920508e5036431abba49d1344d70137472ac62568e15ce0492465f1b7c",
+      "timestamp": "2025-11-02T19:45:49.409740"
+    }
+  ],
+  "nft_owners": {
+    "330403": "0xd9e5e47d9a100fc6e7d1b1c25e5fd7ab4f2254e4",
+    "330586": "0xd9e5e47d9a100fc6e7d1b1c25e5fd7ab4f2254e4",
+    "330741": "0xd9e5e47d9a100fc6e7d1b1c25e5fd7ab4f2254e4",
+    "330768": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "345659": "0xe4f85f4fae5fd0be23a260b8e226db3d6bc37015",
+    "346147": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "348169": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "348297": "0xefad8b7b95d8e5f175d7d451f9837dc246e36499",
+    "348331": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "376765": "0x0ae54e4c8e51e632d65bcc37d020dcd8cfe2cd37",
+    "490224": "0x659f58dbec4425a3250a227d83bb57cb2bfc364f",
+    "490468": "0x659f58dbec4425a3250a227d83bb57cb2bfc364f",
+    "492640": "0x27322c5b95a977b58302fa5f53a5ba1fdb9cfeae",
+    "492865": "0xf40ba6a2fffe61718d4f6225dd62a45f6ba57c72",
+    "493079": "0x613f1e10fcb8c06ba16e9d154d50f5e7daf4e481",
+    "494521": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "494572": "0xead8251ec15ec8ff623c0af31431aa2c1c9d1fbb",
+    "494630": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "494648": "0xe66ea3fe7659310d3392363673afb39fd1019ada",
+    "495028": "0xe66ea3fe7659310d3392363673afb39fd1019ada"
+  }
+}
