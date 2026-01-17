@@ -4,7 +4,7 @@ import json
 import os
 from datetime import datetime, timezone, timedelta
 
-RPC_URL = "https://base.llamarpc.com"
+RPC_URL = "https://mainnet.base.org"
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
 Q192 = 2 ** 192
 
@@ -234,16 +234,20 @@ def getSlot0(block):
     
     pool_manager = "0x498581fF718922c3f8e6A244956aF099B2652b2b"
     
-    # BWORK/WETH POOL
+    # B0x/WETH POOL
+    # Pool ID: 0x6d7608e5974f1aa1bc8ac9b33ae7fdd41a55b24f53007a7f5ed41ee5b15fb194
     pool_slot = '0x995aee68e7c5c17c86d355406ddd29c7cc6c5e6fa9086d304eb932cc98ae7af5'
     packed = get_storage_with_retry(pool_manager, pool_slot, block)
+    print(f"DEBUG - Raw packed value: {hex(packed)}")
     sqrtPriceX96, tick, protocolFee, lpFee = unpack_slot0(packed)
+    print(f"DEBUG - sqrtPriceX96: {sqrtPriceX96}")
+    print(f"DEBUG - sqrtPriceX96 / 2**96: {sqrtPriceX96 / (2**96)}")
     price = sqrtPriceX96_to_price(sqrtPriceX96)
-    print(f"BWORK/WETH - Price: {price}")
-    
-    # Check if BWORK/WETH price is zero or too small
+    print(f"B0x/WETH - Price: {price}")
+
+    # Check if B0x/WETH price is zero or too small
     if price == 0 or price < 1e-18:
-        print(f"WARNING: BWORK/WETH price is zero or too small at block {block}")
+        print(f"WARNING: B0x/WETH price is zero or too small at block {block}")
         actual_price = 0
         return actual_price
     

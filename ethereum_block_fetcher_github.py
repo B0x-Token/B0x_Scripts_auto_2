@@ -7,7 +7,7 @@ from web3 import Web3
 from typing import List, Dict, Any, Optional, Tuple
 
 class EthereumBlockFetcher:
-    def __init__(self, rpc_url: str = "https://mainnet.base.org"):
+    def __init__(self, rpc_url: str = "https://base.gateway.tenderly.co"):
         """
         Initialize the Ethereum block fetcher
         
@@ -280,7 +280,7 @@ if __name__ == "__main__":
         RPC_URL = os.environ.get('RPC_URL')
         if not RPC_URL:
             # Use the default from your original script if no environment variable
-            RPC_URL = "https://base.llamarpc.com"
+            RPC_URL = "https://base.gateway.tenderly.co"
             print(f"No RPC_URL environment variable found, using default RPC endpoint")
         else:
             print(f"Using RPC_URL from environment variable")

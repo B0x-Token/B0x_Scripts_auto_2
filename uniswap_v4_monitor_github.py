@@ -54,14 +54,13 @@ class UniswapV4Monitor:
         
         self.transfer_topic = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
 
-        # Target pool key - B0x/0xBTC pool
-        # Pool ID: 0x6d7608e5974f1aa1bc8ac9b33ae7fdd41a55b24f53007a7f5ed41ee5b15fb194
+        # Target pool key
         self.target_pool_key = PoolKey(
-            currency0="0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",  # B0x
-            currency1="0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B",  # 0xBTC
+            currency0="0xa9520FC8c54691af586544aD13Db954AfC345cd4",
+            currency1="0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B",
             fee=8388608,
             tickSpacing=60,
-            hooks="0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
+            hooks="0x983dD6eF6A9360331ba80Ed6322ea47fEb9AD000"
         )
         
         # Storage
@@ -1033,7 +1032,7 @@ def main():
     # Configuration - get from environment or use defaults
     RPC_URL = os.environ.get('RPC_URL')
     if not RPC_URL:
-        RPC_URL = "https://mainnet.base.org"
+        RPC_URL = "https://base.gateway.tenderly.co"
         print(f"No RPC_URL environment variable found, using default RPC endpoint")
     else:
         print(f"Using RPC_URL from environment variable")
