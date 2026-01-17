@@ -16,7 +16,7 @@ class EthereumBlockFetcher:
         """
         self.w3 = Web3(Web3.HTTPProvider(rpc_url))
         self.eth_block_start = 35930447
-        self.bwork_contract_address = "0x97bBa9F710DE42536843Bd1061514b5104D7DE50"
+        self.bwork_contract_address = "0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4"
         self.mint_topic = "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d"
         self.mined_blocks = []
         self.previous_challenge = None

@@ -1,17 +1,17 @@
 {
   "metadata": {
-    "last_updated": "2026-01-17T09:07:58.633002",
-    "current_block": 40925752,
-    "start_block": 35956776,
+    "last_updated": "2026-01-17T01:36:37.135802",
+    "current_block": 40923024,
+    "start_block": 36321183,
     "target_pool_key": {
-      "currency0": "0xa9520FC8c54691af586544aD13Db954AfC345cd4",
+      "currency0": "0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",
       "currency1": "0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B",
       "fee": 8388608,
       "tickSpacing": 60,
-      "hooks": "0x983dD6eF6A9360331ba80Ed6322ea47fEb9AD000"
+      "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
     },
     "total_valid_positions": 64,
-    "total_invalid_positions": 279,
+    "total_invalid_positions": 3149,
     "total_nft_owners": 64
   },
   "valid_positions": [
