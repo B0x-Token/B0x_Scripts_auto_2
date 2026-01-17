@@ -252,7 +252,7 @@ jobs:
                         </div>
                         <div class="link-card">
                             <strong>Uniswap V4 Data</strong><br>
-                            <a href="testnet_uniswap_v4_data.json" target="_blank">testnet_uniswap_v4_data.json</a>
+                            <a href="mainnet_uniswap_v4_data.json" target="_blank">mainnet_uniswap_v4_data.json</a>
                         </div>
                         <div class="link-card">
                             <strong>Contract</strong><br>
@@ -322,7 +322,7 @@ jobs:
                 
                 async function loadUniswapData() {
                     try {
-                        const response = await fetch('testnet_uniswap_v4_data.json');
+                        const response = await fetch('mainnet_uniswap_v4_data.json');
                         const data = await response.json();
                         
                         // Update Uniswap stats
