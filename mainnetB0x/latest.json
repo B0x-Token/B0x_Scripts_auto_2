@@ -1,6 +1,55 @@
 {
   "mined_blocks": [
     [
+      41047485,
+      "0a89c3a4b2a2d6a0c4774d2afc7cb992772dd5cdf1059a32a99c5efcd1153190",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      25.0,
+      11226
+    ],
+    [
+      41047068,
+      "23b949900a37bce91b8c25419978065516d51df64a9004f46ae52101d232d070",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      17.575,
+      11225
+    ],
+    [
+      41046857,
+      "7e2bed9b7932f3afc38aab3f4ab3df71821ced6b6878fed7aa23a372021fb6ce",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      22.75,
+      11224
+    ],
+    [
+      41046584,
+      "3e2d447a67d51700d2cb1f49837dac209705b166a9e7c5b7f15acb08c3fb23f5",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      25.0,
+      11223
+    ],
+    [
+      41046207,
+      "097ea6c88756aa6951b8e7462484dc62e666cbfd46f56b4b9e1d58cecd264b68",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      -1,
+      11222
+    ],
+    [
+      41046207,
+      "097ea6c88756aa6951b8e7462484dc62e666cbfd46f56b4b9e1d58cecd264b68",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      22.75,
+      11222
+    ],
+    [
+      41045934,
+      "e8690e7a5104e4bf15f038286393e6d327057ce809699914bce3e6e91509a40d",
+      "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
+      21.0,
+      11221
+    ],
+    [
       41045682,
       "f2372cd52925f3952142b97a13948cac88a0029d304f56fdb5dec643d5e29597",
       "0xdfd18d5374df275a8ede107f981f78b1e60f63e4",
@@ -123264,10 +123313,10 @@
       9
     ]
   ],
-  "total_blocks": 17609,
-  "last_updated": 1768880978,
-  "latest_block_number": 41045812,
+  "total_blocks": 17616,
+  "last_updated": 1768884540,
+  "latest_block_number": 41047594,
   "contract_address": "0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4",
   "mint_topic": "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d",
-  "previous_challenge": "8f4946db41b0a08d9f520ce4b32aa8d88cc2e79ed78b2529bc63bc99f48a77bd"
+  "previous_challenge": "af14ab499dcba558af7a31cb47f4ac9a30c99e9b81bc8bc26a9ebf99c14ae2d2"
 }
