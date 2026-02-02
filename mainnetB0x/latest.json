@@ -1,6 +1,69 @@
 {
   "mined_blocks": [
     [
+      41624034,
+      "26287b3f33ac93d3884a15281c16264d98189ce4860ab726ec97997c99091fe1",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12781
+    ],
+    [
+      41623716,
+      "2a7e4187569e159b82d683fd46ed06b445bb8d7f25f38bd8bd6bf94795d0f327",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12780
+    ],
+    [
+      41623397,
+      "7fb44ce51ac87e5dcb69d092e6c12868565b03956fa08bf201f095595c42b909",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12779
+    ],
+    [
+      41623078,
+      "e836183bcd91a8aa7c975ce58c9c43908c3750bb3a2d83cada9278ad42117d3d",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12778
+    ],
+    [
+      41622759,
+      "4d13eeb554b0b6f049aed74cc869be15c7910a7297d35025c2c40ccd898dd092",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12777
+    ],
+    [
+      41622441,
+      "fe8cefbce5a9270cdddb8e1890d4471bc708b9f52feb4bfcdb41c2ac543c2681",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12776
+    ],
+    [
+      41622122,
+      "1f2d5f1807b7659814d6e8af4bb38965c1b2c9c08a8b5da55ba0d0c01cda900a",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12775
+    ],
+    [
+      41621803,
+      "915120d8d4993eeb34e21ac920910efcd2de29807674d24cbc4c0bcadf7724ce",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12774
+    ],
+    [
+      41621484,
+      "51ac21554c41e56bf57722b42978b89b50ddd2a32bd7e38412c8d479aee68e5a",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      25.0,
+      12773
+    ],
+    [
       41621166,
       "ba06d672087cc3bce5979cdf02165ac9d4ecfd4bf62d9c5c0d5ca44a28dab65f",
       "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
@@ -134135,9 +134198,9 @@
       9
     ]
   ],
-  "total_blocks": 19162,
-  "last_updated": 1770032258,
-  "latest_block_number": 41621453,
+  "total_blocks": 19171,
+  "last_updated": 1770037603,
+  "latest_block_number": 41624125,
   "contract_address": "0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4",
   "mint_topic": "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d",
   "previous_challenge": "af14ab499dcba558af7a31cb47f4ac9a30c99e9b81bc8bc26a9ebf99c14ae2d2"
