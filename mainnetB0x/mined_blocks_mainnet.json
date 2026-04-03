@@ -1,6 +1,13 @@
 {
   "mined_blocks": [
     [
+      44223997,
+      "5f359b03066a41974e9d9e18412b87f56ab53aa63ad8f4b7e3d3c4c4458c6b8f",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      20656
+    ],
+    [
       44222563,
       "dca9c764c35e718414715d88e60f79ec240788825ca306b197d59b8d3a19c7b0",
       "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
@@ -146294,9 +146301,9 @@
       9
     ]
   ],
-  "total_blocks": 20899,
-  "last_updated": 1775234631,
-  "latest_block_number": 44222640,
+  "total_blocks": 20900,
+  "last_updated": 1775237849,
+  "latest_block_number": 44224249,
   "contract_address": "0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4",
   "mint_topic": "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d",
   "previous_challenge": "99f139448759ed29a35a6f5e6dfcb9887d729b85f6401b2d2dab95100044115c"
