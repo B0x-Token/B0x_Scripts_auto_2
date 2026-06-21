@@ -1,6 +1,55 @@
 {
   "mined_blocks": [
     [
+      47614558,
+      "1a51bd073680d478ddbfee33641ce180dca68caf672bdbe15a9d702898d5c6cb",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30329
+    ],
+    [
+      47613124,
+      "847c6f23e200092a88c6a3bcd3742e2a2d2f45e84ba93a1fc5d38f3c0ade3dae",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30324
+    ],
+    [
+      47611690,
+      "3f28d1da1e42b0312654bc0968b7e5fe5766392b5119291fd21069e3773794fa",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30319
+    ],
+    [
+      47610256,
+      "6f3c1a89b43622df1a71cffe7c7b3b5d037838ec7564be44bf6e46bca1145d9b",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30314
+    ],
+    [
+      47608822,
+      "e0665402683c88651001330b18da89e1159f369447c621220557552327128a95",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30309
+    ],
+    [
+      47607388,
+      "86c461336b7202d24eb93914093ae0f1884e3e6f51a8c6f5c671f674062ed0d5",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30304
+    ],
+    [
+      47605954,
+      "67f4f9391933c4fdd42b90647662d72282727a993a637edb5648573c36166427",
+      "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
+      119.375,
+      30299
+    ],
+    [
       47604520,
       "b85ab9630bda33247207761cdfd28cc980b76975b16827a02456b8ad32189813",
       "0x9f4af4dfca552ed10e861b5040a38dae8341f020",
@@ -161169,9 +161218,9 @@
       9
     ]
   ],
-  "total_blocks": 23024,
-  "last_updated": 1782000606,
-  "latest_block_number": 47605627,
+  "total_blocks": 23031,
+  "last_updated": 1782019552,
+  "latest_block_number": 47615096,
   "contract_address": "0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4",
   "mint_topic": "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d",
   "previous_challenge": "2ec8caf599681475784cf0d4181fac5df9a082c70a7d67f10fe563e9bbea04c9"
