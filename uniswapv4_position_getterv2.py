@@ -116,8 +116,6 @@ class UniswapV4Monitor:
                         "owner": pos.owner,
                         "block_number": pos.block_number,
                         "tx_hash": pos.tx_hash,
-                        "tick_lower": pos.tick_lower,
-                        "tick_upper": pos.tick_upper,
                         "timestamp": pos.timestamp
                     } for pos in self.positions.values()
                 ]
