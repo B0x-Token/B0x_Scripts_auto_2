@@ -12,7 +12,7 @@ from datetime import datetime
 
 
 CONFIG = {
-    "RPC_URL": os.environ.get("RPC_URL", "https://mainnet.base.org"),
+    "RPC_URL": "https://base.gateway.tenderly.co",
     "POOL_MANAGER_ADDRESS": "0x498581ff718922c3f8e6a244956af099b2652b2b",
     "TOKEN_OWNER_CHECKER": "0x94b1A7bE1df147DbeEbC6b06de577CcFeD9Dc052",
     "NFT_CONTRACT": "0x7C5f5A4bBd8fD63184577525326123B519429bDc",
