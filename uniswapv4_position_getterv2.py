@@ -496,7 +496,7 @@ class UniswapV4Monitor:
         else:
             print("\nNo positions found yet")
 
-    def run_once(self, blocks_per_scan: int = 2000, max_total_blocks: 100000):
+    def run_once(self, blocks_per_scan: int = 2000, max_total_blocks = 100000):
         latest_block = self.get_latest_block()
         total_blocks_scanned = 0
 
