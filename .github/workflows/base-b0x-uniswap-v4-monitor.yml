@@ -55,7 +55,7 @@ jobs:
         RPC_URL: ${{ secrets.RPC_URL }}
       run: |
         echo "Starting Uniswap V4 Monitor..."
-        python uniswap_v4_monitor_github.py
+        python uniswapv4_position_getterv2.py
       timeout-minutes: 25
     
     - name: Move Uniswap data file to mainnetB0x directory
