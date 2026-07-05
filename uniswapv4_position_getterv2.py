@@ -109,7 +109,7 @@ class UniswapV4Monitor:
                     "target_pool_id": self.target_pool_id,
                     "total_positions": len(self.positions),
                 },
-                "positions": [
+                "valid_positions": [
                     {
                         "token_id": pos.token_id,
                         "pool_key": asdict(pos.pool_key),
@@ -167,7 +167,7 @@ class UniswapV4Monitor:
             metadata = data.get("metadata", {})
             self.current_block = metadata.get("current_block", self.start_block)
 
-            for pos_data in data.get("positions", []):
+            for pos_data in data.get("valid_positions", []):
                 pool_key = PoolKey(**pos_data["pool_key"])
                 position = Position(
                     token_id=pos_data["token_id"],
@@ -183,7 +183,7 @@ class UniswapV4Monitor:
 
             print(f"Loaded data from {file_path}")
             print(f"  Resuming from block: {self.current_block}")
-            print(f"  Positions: {len(self.positions)}")
+            print(f"  valid_positions: {len(self.positions)}")
 
         except Exception as e:
             print(f"Error loading data: {e}")
