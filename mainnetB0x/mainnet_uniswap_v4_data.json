@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-21T00:13:21.236043",
-    "current_block": 48901726,
+    "last_updated": "2026-07-21T03:49:10.455182",
+    "current_block": 48908199,
     "start_block": 35956776,
     "target_pool_key": {
       "currency0": "0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",
@@ -822,8 +822,8 @@
         "hooks": "0x785319f8fce23cd733de94fd7f34b74a5caa1000"
       },
       "owner": "0x23400DC0cC44fb8F295fD4C73bB19528066b59f3",
-      "block_number": 48593402,
-      "tx_hash": "0x1217dae60b6b8a2c874bce108ef578c40a19c04056774da4ee6e5702cf146157",
+      "block_number": 48903584,
+      "tx_hash": "0x3138f8858522a04d0c990b5d9e78abe9d7cafa38aa6d58e0ece7df9267f63b8c",
       "timestamp": "2026-01-06T22:20:14.006377"
     },
     {
@@ -1017,9 +1017,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x23400DC0cC44fb8F295fD4C73bB19528066b59f3",
-      "block_number": 48775375,
-      "tx_hash": "0x02d15cf190812b8ec7cfcef04957b648bd645d47f5dce5168171f7276d72e6b9",
+      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
+      "block_number": 48905017,
+      "tx_hash": "0xc4b043eaca1ffb3ebb37a209fbe746a6e2e0fec69612e7ac2d82b977df1df5ac",
       "timestamp": "2026-07-09T04:13:48.827593"
     },
     {
@@ -1087,9 +1087,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x23400DC0cC44fb8F295fD4C73bB19528066b59f3",
-      "block_number": 48893738,
-      "tx_hash": "0x26f89ed42a3835d15e28b2adb5bd8bca1fce2548fb54feccfd0f430cc04b40ad",
+      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
+      "block_number": 48904354,
+      "tx_hash": "0xa1b1edbec47602afc1d6fa3c3ff10b922e439d9c97bf4d38accbfe8e310cbc0b",
       "timestamp": "2026-07-18T03:32:03.174297"
     },
     {
