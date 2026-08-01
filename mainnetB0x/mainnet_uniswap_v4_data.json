@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-07-31T23:44:42.957711",
-    "current_block": 49376067,
+    "last_updated": "2026-08-01T01:18:15.447148",
+    "current_block": 49378873,
     "start_block": 35956776,
     "target_pool_key": {
       "currency0": "0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",
@@ -1157,9 +1157,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0xb1cCE16b38C27f2daBdBCD842F12EE5A9Ece8A5f",
-      "block_number": 49017391,
-      "tx_hash": "0x49c1034c57a94a0f6c07ff60cccb32813df174a25eee6aa28199ed949ac2fe12",
+      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
+      "block_number": 49377747,
+      "tx_hash": "0x2ea4da87d1fc71439198c3890d75de67b033af9f59697ebeb1a71775da440ea2",
       "timestamp": "2026-07-22T07:22:19.032987"
     },
     {
