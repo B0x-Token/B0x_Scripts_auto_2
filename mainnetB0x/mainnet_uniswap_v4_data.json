@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-10T18:34:36.905168",
-    "current_block": 49798764,
+    "last_updated": "2026-08-10T19:42:32.102204",
+    "current_block": 49800801,
     "start_block": 35956776,
     "target_pool_key": {
       "currency0": "0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",
@@ -11,7 +11,7 @@
       "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
     },
     "target_pool_id": "0xa2da1740db0db2cf3059413cc2b1ad1185d311ee69bbce1720459eea7c9e4bea",
-    "total_positions": 91
+    "total_positions": 92
   },
   "valid_positions": [
     {
@@ -821,9 +821,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fce23cd733de94fd7f34b74a5caa1000"
       },
-      "owner": "0xdFD18d5374dF275A8EDE107f981f78b1E60f63E4",
-      "block_number": 49582455,
-      "tx_hash": "0xaa62ba630c20f7b7da8040c74c1df0d9bb11fca75973b613630ffa3f9aacba5f",
+      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
+      "block_number": 49799376,
+      "tx_hash": "0xadffd3061f53866fbd6ab0624989075cea161a31cc06115d69b226f7837e9404",
       "timestamp": "2026-01-06T22:20:14.006377"
     },
     {
@@ -1241,9 +1241,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0xdFD18d5374dF275A8EDE107f981f78b1E60f63E4",
-      "block_number": 49582467,
-      "tx_hash": "0xae831f40ccc52c1819a09390a335800b30690ea5a1c8e1c35607640687d6b382",
+      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
+      "block_number": 49799416,
+      "tx_hash": "0xfa8dc2a602e8068f00f11b5c4bf5de9ffe06d72c48d8379b6f0a562423392bac",
       "timestamp": "2026-08-04T21:57:56.984868"
     },
     {
@@ -1287,6 +1287,20 @@
       "block_number": 49584238,
       "tx_hash": "0x34dcb0a3c6a2513f298651c590d1966f505bda422fb0856e100ef79fa4ea804a",
       "timestamp": "2026-08-05T20:39:13.251752"
+    },
+    {
+      "token_id": 2900520,
+      "pool_key": {
+        "currency0": "0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",
+        "currency1": "0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B",
+        "fee": 8388608,
+        "tickSpacing": 60,
+        "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
+      },
+      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
+      "block_number": 49799444,
+      "tx_hash": "0x9aa1ff4c4fd5b6c06ac143b60b0a1bbe660163ddff4339f80c7c2629148b0c18",
+      "timestamp": "2026-08-10T19:42:29.214977"
     }
   ]
 }
