@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-08-10T20:24:52.726613",
-    "current_block": 49802072,
+    "last_updated": "2026-08-10T21:25:42.463087",
+    "current_block": 49803897,
     "start_block": 35956776,
     "target_pool_key": {
       "currency0": "0x6B19E31C1813cD00b0d47d798601414b79A3e8AD",
@@ -821,9 +821,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fce23cd733de94fd7f34b74a5caa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49799376,
-      "tx_hash": "0xadffd3061f53866fbd6ab0624989075cea161a31cc06115d69b226f7837e9404",
+      "owner": "0xdFD18d5374dF275A8EDE107f981f78b1E60f63E4",
+      "block_number": 49803009,
+      "tx_hash": "0x2152bc6f0b371b1ba4cbb33e66985d90fddcd680a13cd35373aa7f74245e877b",
       "timestamp": "2026-01-06T22:20:14.006377"
     },
     {
@@ -989,9 +989,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49624058,
-      "tx_hash": "0x225f6147785cd09bfddbc4e3cb0e47823e8d20db51d2d392a61003a7b8df8489",
+      "owner": "0x23400DC0cC44fb8F295fD4C73bB19528066b59f3",
+      "block_number": 49803126,
+      "tx_hash": "0xbabed0937878f6d9d76480b89e47bb23937cf6de89f17e2da19df1fd8fdd5e32",
       "timestamp": "2026-07-08T23:50:44.544052"
     },
     {
@@ -1003,9 +1003,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49330067,
-      "tx_hash": "0x3eb40112264d14b3da0d7fa76dfa2fcc0c1450ebe2a293167d094752631ad99b",
+      "owner": "0x23400DC0cC44fb8F295fD4C73bB19528066b59f3",
+      "block_number": 49803288,
+      "tx_hash": "0x1aefc6a25cf9731517c9785cab0a5e711849e26e8b26df6e1b36e9e6c20b0c00",
       "timestamp": "2026-07-09T04:13:48.827573"
     },
     {
@@ -1017,9 +1017,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49330067,
-      "tx_hash": "0x3eb40112264d14b3da0d7fa76dfa2fcc0c1450ebe2a293167d094752631ad99b",
+      "owner": "0x23400DC0cC44fb8F295fD4C73bB19528066b59f3",
+      "block_number": 49803288,
+      "tx_hash": "0x1aefc6a25cf9731517c9785cab0a5e711849e26e8b26df6e1b36e9e6c20b0c00",
       "timestamp": "2026-07-09T04:13:48.827593"
     },
     {
@@ -1157,9 +1157,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49377747,
-      "tx_hash": "0x2ea4da87d1fc71439198c3890d75de67b033af9f59697ebeb1a71775da440ea2",
+      "owner": "0xb1cCE16b38C27f2daBdBCD842F12EE5A9Ece8A5f",
+      "block_number": 49803095,
+      "tx_hash": "0x86850652017a6bb086a6fa4649c025a8ebe924b879623cec37638d1c0edccb49",
       "timestamp": "2026-07-22T07:22:19.032987"
     },
     {
@@ -1241,9 +1241,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49799416,
-      "tx_hash": "0xfa8dc2a602e8068f00f11b5c4bf5de9ffe06d72c48d8379b6f0a562423392bac",
+      "owner": "0xdFD18d5374dF275A8EDE107f981f78b1E60f63E4",
+      "block_number": 49803009,
+      "tx_hash": "0x2152bc6f0b371b1ba4cbb33e66985d90fddcd680a13cd35373aa7f74245e877b",
       "timestamp": "2026-08-04T21:57:56.984868"
     },
     {
@@ -1297,9 +1297,9 @@
         "tickSpacing": 60,
         "hooks": "0x785319f8fCE23Cd733DE94Fd7f34b74A5cAa1000"
       },
-      "owner": "0x08f489C5017942d3b7c82C1c178877C80492c948",
-      "block_number": 49799444,
-      "tx_hash": "0x9aa1ff4c4fd5b6c06ac143b60b0a1bbe660163ddff4339f80c7c2629148b0c18",
+      "owner": "0xdFD18d5374dF275A8EDE107f981f78b1E60f63E4",
+      "block_number": 49802993,
+      "tx_hash": "0x6d5b41d8cd178f4daa4c7ee10ebfbf970f35b8c98f25e71e729a91e4303d1f9e",
       "timestamp": "2026-08-10T19:42:29.214977"
     }
   ]
